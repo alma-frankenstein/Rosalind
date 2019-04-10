@@ -1,0 +1,25 @@
+def work_it(strand):  
+
+    comple = ""
+
+    for i in strand:
+        if i == 'A':
+            comple = comple + 'T'
+        elif i == 'C':
+            comple = comple + 'G'
+        elif i == 'T':
+            comple = comple + 'A'
+        elif i == 'G':
+            comple = comple + 'C'
+    
+    verso = comple[::-1]
+    print(verso.strip())
+    
+#save the Rosalind data as a variable:    
+filename = 'rosalind_revc.txt'
+       
+with open(filename) as file_object:
+    dna = file_object.read()
+        
+##call the function on the Rosalind dataset:
+work_it(dna)
