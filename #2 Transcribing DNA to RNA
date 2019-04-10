@@ -1,0 +1,7 @@
+#save the Rosalind data as the variable 'contents'
+filename = 'rosalind_rna.txt'
+with open(filename) as file_object:
+    contents = file_object.read()
+
+rna = contents.replace('T', 'U')
+print(rna)
