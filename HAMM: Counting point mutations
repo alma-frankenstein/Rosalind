@@ -1,0 +1,14 @@
+counter = 0
+index = 0
+
+#copy and paste the strings from the Rosalind dataset here.
+#be sure to put them in quotes.
+stringA = 
+stringB = 
+
+for letter in stringA: 
+    if stringA[index] != stringB[index]:
+        counter += 1
+    index +=1
+    
+print(counter)
