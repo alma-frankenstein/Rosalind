@@ -1,0 +1,60 @@
+# -*- coding: utf-8 -*-
+
+rosalind_input = 'UCUUCUUUG'
+as_list = list(rosalind_input)
+
+#print(len(rosalind_input))
+
+protein = ""
+
+counter = 0
+index1 = 0
+index2 = 3
+while counter < len(rosalind_input):
+    codon =(as_list[index1:index2])
+    codon_as_string = ''.join(codon)
+   # print(codon)
+    #print(codon_as_string)
+    counter += 3
+    index1 += 3
+    index2 += 3
+    if codon_as_string == 'UUU':
+        protein = protein + 'F'
+    elif codon_as_string == 'UUC':
+        protein = protein + 'F'
+    elif codon_as_string == 'UUA' or codon_as_string == 'CUU':
+        protein = protein + 'L'
+    elif codon_as_string == 'UUG':
+        protein = protein + 'L'
+    elif codon_as_string == 'UCU':
+        protein = protein + 'S'
+    elif codon_as_string == 'UCC':
+        protein = protein + 'S'
+    elif codon_as_string == 'UCA':
+        protein = protein + 'S'
+    elif codon_as_string == 'UCG':
+        protein = protein + 'S'
+    elif codon_as_string == 'UAU':
+        protein = protein + 'Y'
+print(protein)
+
+#AUU I      GUU V
+#CUC L      AUC I      GUC V
+#CUA L      AUA I      GUA V
+#CUG L      AUG M      GUG V
+#CCU P      ACU T      GCU A
+#CCC P      ACC T      GCC A
+#CCA P      ACA T      GCA A
+#CCG P      ACG T      GCG A
+#CAU H      AAU N      GAU D
+#UAC Y      CAC H      AAC N      GAC D
+#UAA Stop   CAA Q      AAA K      GAA E
+#UAG Stop   CAG Q      AAG K      GAG E
+#UGU C      CGU R      AGU S      GGU G
+#UGC C      CGC R      AGC S      GGC G
+#UGA Stop   CGA R      AGA R      GGA G
+#UGG W      CGG R      AGG R      GGG G 
+    
+    
+
+
