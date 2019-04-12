@@ -1,0 +1,21 @@
+
+#tuple to string
+#then print string
+
+import math
+
+factor = math.factorial(6)
+print(factor)
+
+from itertools import permutations
+perms = permutations([1,2,3,4,5,6])
+
+for perm in perms:
+    new_tup = perm
+    #print(new_tup)
+    tup_string = ""    
+    for num in new_tup:
+        stri_num = str(num)
+        tup_string = tup_string + stri_num
+        tup_string = tup_string + " "
+    print(tup_string)
