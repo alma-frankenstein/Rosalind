@@ -1,0 +1,96 @@
+# -*- coding: utf-8 -*-
+
+filename = 'rosalind_prot.txt'
+
+with open(filename) as file_object:
+    rosalind_input = file_object.read()
+
+
+as_list = list(rosalind_input)
+
+#print(len(rosalind_input))
+
+protein = ""
+
+counter = 0
+index1 = 0
+index2 = 3
+while counter < len(rosalind_input):
+    codon =(as_list[index1:index2])
+    codon_as_string = ''.join(codon)
+   # print(codon)
+    #print(codon_as_string)
+    counter += 3
+    index1 += 3
+    index2 += 3
+    if codon_as_string == 'UUU':
+        protein = protein + 'F'
+    elif codon_as_string == 'UUC':
+        protein = protein + 'F'
+    elif codon_as_string == 'UUA' or codon_as_string == 'CUU':
+        protein = protein + 'L'
+    elif codon_as_string == 'UUG':
+        protein = protein + 'L'
+    elif codon_as_string == 'UCU':
+        protein = protein + 'S'
+    elif codon_as_string == 'UCC':
+        protein = protein + 'S'
+    elif codon_as_string == 'UCA':
+        protein = protein + 'S'
+    elif codon_as_string == 'UCG':
+        protein = protein + 'S'
+    elif codon_as_string == 'UAU':
+        protein = protein + 'Y'
+    elif codon_as_string == 'AUU':
+        protein = protein + 'I'
+    elif codon_as_string == 'CUC' or codon_as_string == 'CUA' or codon_as_string == 'CUG':
+        protein = protein + 'L'
+    elif codon_as_string == 'CCU' or codon_as_string == 'CCC' or codon_as_string == 'CCA' or codon_as_string == 'CCG':
+        protein = protein + 'P'
+    elif codon_as_string == 'CAU' or codon_as_string == 'CAC':
+        protein = protein + 'H'
+    elif codon_as_string == 'UAC':
+        protein = protein + 'Y'
+    elif codon_as_string == 'UGU' or codon_as_string == 'UGC':
+        protein = protein + 'C'
+    elif codon_as_string == 'UGG':
+        protein = protein + 'W'
+    elif codon_as_string == 'GUU':
+        protein = protein + 'V'
+    elif codon_as_string == 'AUC' or codon_as_string == 'AUA':
+        protein = protein + 'I'
+    elif codon_as_string == 'AUG':
+        protein = protein + 'M'
+    elif codon_as_string == 'ACU' or codon_as_string == 'ACC' or codon_as_string == 'ACA' or codon_as_string == 'ACG':
+        protein = protein + 'T'
+    elif codon_as_string == 'AAU':
+        protein = protein + 'N'
+    elif codon_as_string == 'CAA' or codon_as_string == 'CAG':
+        protein = protein + 'Q'
+    elif codon_as_string == 'CGU' or codon_as_string == 'CGC' or codon_as_string == 'AGA' or codon_as_string == 'AGG' or codon_as_string == 'CGA' or codon_as_string == 'CGG':
+        protein = protein + 'R'
+    elif codon_as_string == 'GUC' or codon_as_string == 'GUA' or codon_as_string == 'GUG':
+        protein = protein + 'V'
+    elif codon_as_string == 'GCU' or codon_as_string == 'GCC' or codon_as_string == 'GCA' or codon_as_string == 'GCG':
+        protein = protein + 'A'
+    elif codon_as_string == 'GAU' or codon_as_string == 'GAC':
+        protein = protein + 'D'
+    elif codon_as_string == 'ACC':
+        protein = protein + 'N'
+    elif codon_as_string == 'AAA' or codon_as_string == 'AAG':
+        protein = protein + 'K'
+    elif codon_as_string == 'AGU' or codon_as_string == 'ACG':
+        protein = protein + 'S'
+    elif codon_as_string == 'GAA' or codon_as_string == 'GAG':
+        protein = protein + 'E'
+    elif codon_as_string == 'GGU' or codon_as_string == 'GGC' or codon_as_string == 'CCA' or codon_as_string == 'GGG':
+        protein = protein + 'G'
+    elif codon_as_string == 'UAA' or codon_as_string == 'UAG' or codon_as_string == 'UGA': 
+        break
+    
+print(protein)
+
+
+    
+
+
