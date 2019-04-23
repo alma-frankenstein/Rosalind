@@ -1,14 +1,11 @@
-# -*- coding: utf-8 -*-
 
-filename = 'rosalind_prot.txt'
+filename = 'rosalind_prot(x).txt'
 
 with open(filename) as file_object:
     rosalind_input = file_object.read()
 
-
+#takes rna string from rosalind, makes it a list for indexing:
 as_list = list(rosalind_input)
-
-#print(len(rosalind_input))
 
 protein = ""
 
@@ -17,29 +14,19 @@ index1 = 0
 index2 = 3
 while counter < len(rosalind_input):
     codon =(as_list[index1:index2])
+    #makes the codon back into a string for evaluation:
     codon_as_string = ''.join(codon)
-   # print(codon)
-    #print(codon_as_string)
+
     counter += 3
     index1 += 3
     index2 += 3
-    if codon_as_string == 'UUU':
+    if codon_as_string == 'UUU' or codon_as_string == 'UUC':
         protein = protein + 'F'
-    elif codon_as_string == 'UUC':
-        protein = protein + 'F'
-    elif codon_as_string == 'UUA' or codon_as_string == 'CUU':
+    elif codon_as_string == 'UUA' or codon_as_string == 'CUU' or codon_as_string == 'UUG':
         protein = protein + 'L'
-    elif codon_as_string == 'UUG':
-        protein = protein + 'L'
-    elif codon_as_string == 'UCU':
+    elif codon_as_string == 'UCU' or codon_as_string == 'UCC' or codon_as_string == 'UCA' or codon_as_string == 'UCG':
         protein = protein + 'S'
-    elif codon_as_string == 'UCC':
-        protein = protein + 'S'
-    elif codon_as_string == 'UCA':
-        protein = protein + 'S'
-    elif codon_as_string == 'UCG':
-        protein = protein + 'S'
-    elif codon_as_string == 'UAU':
+    elif codon_as_string == 'UAU' or codon_as_string == 'UAC':
         protein = protein + 'Y'
     elif codon_as_string == 'AUU':
         protein = protein + 'I'
@@ -49,8 +36,6 @@ while counter < len(rosalind_input):
         protein = protein + 'P'
     elif codon_as_string == 'CAU' or codon_as_string == 'CAC':
         protein = protein + 'H'
-    elif codon_as_string == 'UAC':
-        protein = protein + 'Y'
     elif codon_as_string == 'UGU' or codon_as_string == 'UGC':
         protein = protein + 'C'
     elif codon_as_string == 'UGG':
@@ -75,15 +60,15 @@ while counter < len(rosalind_input):
         protein = protein + 'A'
     elif codon_as_string == 'GAU' or codon_as_string == 'GAC':
         protein = protein + 'D'
-    elif codon_as_string == 'ACC':
+    elif codon_as_string == 'AAC':
         protein = protein + 'N'
     elif codon_as_string == 'AAA' or codon_as_string == 'AAG':
         protein = protein + 'K'
-    elif codon_as_string == 'AGU' or codon_as_string == 'ACG':
+    elif codon_as_string == 'AGU' or codon_as_string == 'AGC':
         protein = protein + 'S'
     elif codon_as_string == 'GAA' or codon_as_string == 'GAG':
         protein = protein + 'E'
-    elif codon_as_string == 'GGU' or codon_as_string == 'GGC' or codon_as_string == 'CCA' or codon_as_string == 'GGG':
+    elif codon_as_string == 'GGU' or codon_as_string == 'GGC' or codon_as_string == 'GGG' or codon_as_string == 'GGA':
         protein = protein + 'G'
     elif codon_as_string == 'UAA' or codon_as_string == 'UAG' or codon_as_string == 'UGA': 
         break
