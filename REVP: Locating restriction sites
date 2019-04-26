@@ -1,56 +1,44 @@
-#save the Rosalind data as a variable:    
-#filename = 'rosalind_revp.txt'
-       
-#with open(filename) as file_object:
-#    dna = file_object.read()
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Apr 19 14:34:27 2019
 
-dna = 'ATATCG' 
+@author: frankens
+"""
 
-#an empty string for the compliment nucleotides to append to 
-comple = ""
-
-for i in dna:
-    if i == 'A':
-        comple = comple + 'T'
-    elif i == 'C':
-        comple = comple + 'G'
-    elif i == 'T':
-        comple = comple + 'A'
-    elif i == 'G':
-        comple = comple + 'C'
-
-print(comple)
-    
-#change the dna string and its compliment string to lists for index checking
-dnaLst = list(dna)
-print(dnaLst)
-compleLst = list(comple)
-print(compleLst)
-
-#indexer starts with the first nucleotide at index 0
-indexer = 0
+def reverse_complement(string):
+    complements = {'A':'T', 'T':'A', 'G':'C', 'C':'G'}
+    return ''.join([complements[c] for c in reversed(string)])
 
 
-#start with the first nucleotide, work backward to check for matches
-def backward_checking(complement):
-    reverseIndexer = -1
-    reverseCounter = 0
-    while reverseCounter < len(dna):
-        if dnaLst[indexer] == compleLst[reverseIndexer]:
-            print('yeah')
-            reverseIndexer = reverseIndexer -1
-            reverseCounter = reverseCounter + 1
-        else:
-            print('nah')
-            reverseIndexer = reverseIndexer -1
-            reverseCounter = reverseCounter + 1
-    #if you get 4-12 'yeah's, print the location (reverseCounter?) and length
+def reverse_palindromes(string):
+    results = []
 
-#reverse check for each nucleotide
-for i in dnaLst:
-    backward_checking(compleLst)
-    indexer += 1
-    
-print(indexer)
-print(compleLst[-1])
-print(reverseIndexer)
+    length = len(string)
+
+    for i in range(length):
+        for j in range(4, 9):
+
+            if i + j > length:
+                continue
+            
+#makes a slice of the dna to look at
+            s1 = string[i:i+j]
+            s2 = reverse_complement(s1)
+
+            if s1 == s2:
+#index + 1 is position, j is the length of the slice
+                results.append((i + 1, j))
+
+    return results
+
+
+#if __name__ == "__main__":
+
+small_dataset = "TCAATGCATGCGGGTCTATATGCAT"
+   # large_dataset = open('datasets/rosalind_revp.txt').read().strip()
+
+results = reverse_palindromes(small_dataset)
+
+print(reverse_complement(small_dataset))
+
+print("\n".join([' '.join(map(str, r)) for r in results]))
