@@ -1,0 +1,14 @@
+#genotype combos given in problem
+# percent offspring with dominant allele (from punnett squares), times 2 offspring
+a = 2
+b = 2
+c = 2
+d = 1.5
+e = 1
+f = 0
+
+def dom_allele(g,h,i,j,k,l):
+    offspring = (a*g)+(b*h)+(c*i)+(d*j)+(e*k)+(f*l)
+    print(offspring)
+    
+dom_allele(17754,17574,17004,18206,18369,17552)
