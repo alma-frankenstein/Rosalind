@@ -12,7 +12,7 @@ def work_it(strand):
         elif i == 'G':
             comple = comple + 'C'
     
-    verso = comple[::-1]
+    verso = comple[::-1] #starts at the beginning, goes to the end, working backward one element at a time
     print(verso.strip())
     
 #save the Rosalind data as a variable:    
