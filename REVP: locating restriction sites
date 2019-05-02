@@ -1,0 +1,49 @@
+
+#save the Rosalind data as a variable:    
+filename = 'rosalind_revp.txt'
+       
+with open(filename) as file_object:
+    dna = file_object.read().strip()
+
+def work_it(strand):  
+
+    comple = ""
+
+    for i in strand:
+        if i == 'A':
+            comple = comple + 'T'
+        elif i == 'C':
+            comple = comple + 'G'
+        elif i == 'T':
+            comple = comple + 'A'
+        elif i == 'G':
+            comple = comple + 'C'
+    
+    verso = comple[::-1] #starts at the beginning, goes to the end, working backward one element at a time
+    return verso.strip()
+            
+
+def reverse_palindromes(string):
+    results = []
+
+    length = len(string)
+
+    for first_index in range(length): #for each nucleotide in the original dna
+        for second_index in range(4, 13): #palindrome length 4-12
+
+            if first_index + second_index > length:
+                continue
+            
+#makes a slice of the dna to look at
+            s1 = string[first_index:first_index+second_index]
+            s2 = work_it(s1)
+
+            if s1 == s2:
+#index + 1 is position, j is the length of the slice
+                results.append((first_index + 1, second_index))
+
+    return results
+
+results = reverse_palindromes(dna)
+
+print("\n".join([' '.join(map(str, r)) for r in results]))
