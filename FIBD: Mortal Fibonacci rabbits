@@ -1,0 +1,19 @@
+#start with 1 pair of rabbits in each first and second months (given)
+x = [1,1]
+months_alive = 3
+def wascally(months):
+    counter = 0
+    while counter+2 < months:
+        new_val = ((x[-2])+x[-1])
+        if months_alive <= len(x):
+            print('yes')
+            print(x[-months_alive])
+            new_val = new_val - (x[-months_alive])
+        else:
+            print('no')
+        x.append(new_val)
+        counter += 1
+    
+    print(x)
+    
+wascally(6)
