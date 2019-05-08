@@ -38,23 +38,6 @@ while counter < len(rosalind_input):
         protein = protein + 'Y'
 print(protein)
 
-#AUU I      GUU V
-#CUC L      AUC I      GUC V
-#CUA L      AUA I      GUA V
-#CUG L      AUG M      GUG V
-#CCU P      ACU T      GCU A
-#CCC P      ACC T      GCC A
-#CCA P      ACA T      GCA A
-#CCG P      ACG T      GCG A
-#CAU H      AAU N      GAU D
-#UAC Y      CAC H      AAC N      GAC D
-#UAA Stop   CAA Q      AAA K      GAA E
-#UAG Stop   CAG Q      AAG K      GAG E
-#UGU C      CGU R      AGU S      GGU G
-#UGC C      CGC R      AGC S      GGC G
-#UGA Stop   CGA R      AGA R      GGA G
-#UGG W      CGG R      AGG R      GGG G 
-    
-    
+
 
 
