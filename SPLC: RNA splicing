@@ -4,9 +4,9 @@ import itertools
 ids = []
 sequences=[]
 #so, dna as string, rest of fasta as dictionary
-dna = "ATGGTCTACATAGCTGACAAACAGCACGTAGCAATCGGTCGAATCTCGAGAGGCATATGGTCACATGATCGGTCGAGCGTGTTTCAAAGTTTGCGCCTAG"
-#print(len(dna))
-with open('rosalind_grph.txt') as file_object:
+dna = ""
+
+with open('rosalind_splc.txt') as file_object:
     sequence = ''
     for line in file_object:
         if ('>') not in line:
@@ -18,8 +18,7 @@ with open('rosalind_grph.txt') as file_object:
                 sequences.append(sequence)
                 sequence = ""
     sequences.append(sequence)
-#print(ids)
-#print(sequences)
+
 #interleave ids and sequences as a list
 fasta_list = ([val for pair in zip(ids, sequences) for val in pair]) 
     
@@ -28,16 +27,12 @@ d = dict(itertools.zip_longest(*[iter(fasta_list)] * 2, fillvalue=""))
     #for each substring, replace substring with nothing
 for k, v in d.items():
     dna = dna.replace(v,"")
-    
-print(len(dna))
+
 #turn DNA to RNA
 rna = dna.replace('T', 'U')
-print(rna)
 
-#rosalind_input = 'UCUUCUUUG'
 as_list = list(rna)
 
-#print(len(rosalind_input))
 def rna_to_protein(rna):
     protein = ""
     
@@ -47,8 +42,6 @@ def rna_to_protein(rna):
     while counter < len(rna):
         codon =(as_list[index1:index2])
         codon_as_string = ''.join(codon)
-       # print(codon)
-        #print(codon_as_string)
         counter += 3
         index1 += 3
         index2 += 3
