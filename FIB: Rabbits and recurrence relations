@@ -7,6 +7,6 @@ def wascally(months, pairs_per_month):
         new_val = ((x[-2]*pairs_per_month)+x[-1])
         x.append(new_val)
         counter += 1
-    
+    print(wascally[-1])
     
 wascally(29,4) #returns 170361678269
