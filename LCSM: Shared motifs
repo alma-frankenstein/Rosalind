@@ -1,0 +1,37 @@
+#V1
+import itertools
+
+#append ids and multi-line sequences to their respective lists
+ids = []
+sequences=[]
+with open('rosalind_motif.txt') as file_object:
+    sequence = ''
+    for line in file_object:
+        if ('>') not in line:
+            sequence	+=	line.rstrip('\n')
+            continue
+        else:
+            ids.append(line.rstrip('\n').lstrip('>'))
+            if sequence:
+                sequences.append(sequence)
+                sequence = ""
+    sequences.append(sequence)
+#print(ids)
+print(sequences)
+#find the shortest string in the list of sequences
+shortest = min(sequences, key=len)
+print(shortest)
+
+#interleave ids and sequences as a list
+#fasta_list = ([val for pair in zip(ids, sequences) for val in pair]) 
+
+#turn the list into a dictionary
+#d = dict(itertools.zip_longest(*[iter(fasta_list)] * 2, fillvalue=""))
+#print(d)
+
+
+        
+#see if it's in every other string
+#if yes, append it to a dictionary, with the substring as the key and
+#the length of it as the value
+#find the value with the max length, return the key
