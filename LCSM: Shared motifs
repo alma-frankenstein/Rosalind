@@ -1,10 +1,15 @@
-#V1
-import itertools
+# -*- coding: utf-8 -*-
+"""
+Created on Tue May 21 16:41:09 2019
+
+@author: Alma
+"""
+
 
 #append ids and multi-line sequences to their respective lists
 ids = []
 sequences=[]
-with open('rosalind_motif.txt') as file_object:
+with open('rosalind_lcsm (3).txt') as file_object:
     sequence = ''
     for line in file_object:
         if ('>') not in line:
@@ -16,22 +21,38 @@ with open('rosalind_motif.txt') as file_object:
                 sequences.append(sequence)
                 sequence = ""
     sequences.append(sequence)
-#print(ids)
-print(sequences)
+
 #find the shortest string in the list of sequences
 shortest = min(sequences, key=len)
-print(shortest)
 
-#interleave ids and sequences as a list
-#fasta_list = ([val for pair in zip(ids, sequences) for val in pair]) 
+substrings = []
+def all_substrings(string):
+    """finds all the substrings, appends to list"""
 
-#turn the list into a dictionary
-#d = dict(itertools.zip_longest(*[iter(fasta_list)] * 2, fillvalue=""))
-#print(d)
+    last_index = len(string)
+    for i in range(0,last_index):
+        for j in range((i+1),(last_index+1)):
+            substring=shortest[i:j]
+            substrings.append(substring)
+    
+all_substrings(shortest)
+#find the longest of the substrings
+longest_sub = max(substrings, key=len)
 
+in_all =[]
+#for sub in subs:
+for sub in substrings:
+    contains =[]
+    for seq in sequences:
+        if sub in seq:
+#if the substring's in the superstring, append a truthy value to 
+            contains.append(1)
+        else:
+            contains.append(0)
+#if the substring's in all the superstrings, append it to the strs list
+    if all(contains):
+        in_all.append(sub)
 
-        
-#see if it's in every other string
-#if yes, append it to a dictionary, with the substring as the key and
-#the length of it as the value
-#find the value with the max length, return the key
+#return the longest substring in that list
+longest_motif = max(in_all, key=len)
+print(longest_motif)
