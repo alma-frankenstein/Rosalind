@@ -5,13 +5,11 @@ Created on Tue May 21 16:41:09 2019
 @author: Alma
 """
 
-#V1
-import itertools
 
 #append ids and multi-line sequences to their respective lists
 ids = []
 sequences=[]
-with open('rosalind_lcsm (1).txt') as file_object:
+with open('rosalind_lcsm (3).txt') as file_object:
     sequence = ''
     for line in file_object:
         if ('>') not in line:
@@ -23,11 +21,9 @@ with open('rosalind_lcsm (1).txt') as file_object:
                 sequences.append(sequence)
                 sequence = ""
     sequences.append(sequence)
-#print(ids)
-#print(sequences)
+
 #find the shortest string in the list of sequences
 shortest = min(sequences, key=len)
-#print(shortest)
 
 substrings = []
 def all_substrings(string):
@@ -38,14 +34,11 @@ def all_substrings(string):
         for j in range((i+1),(last_index+1)):
             substring=shortest[i:j]
             substrings.append(substring)
-
-   # print(substrings)
     
 all_substrings(shortest)
 #find the longest of the substrings
 longest_sub = max(substrings, key=len)
-#print(longest_sub)
-  
+
 in_all =[]
 #for sub in subs:
 for sub in substrings:
@@ -59,7 +52,7 @@ for sub in substrings:
 #if the substring's in all the superstrings, append it to the strs list
     if all(contains):
         in_all.append(sub)
-#print(in_all)
+
 #return the longest substring in that list
 longest_motif = max(in_all, key=len)
 print(longest_motif)
