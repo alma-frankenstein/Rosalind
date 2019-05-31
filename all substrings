@@ -1,4 +1,4 @@
-
+#useful for 'Finding a Shared Motif' 
 #find each substring slice in the superstring
 string = "GATTACA"
 
