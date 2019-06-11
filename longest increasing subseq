@@ -1,0 +1,42 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Jun 11 10:48:27 2019
+
+@author: Alma
+"""
+
+contenders = []
+current_longest = []
+
+seq = [0,8,4,12,2,10,6,14,1,9,5,13,3,11,7,15]
+
+#the first subseq is the first element of seq
+first = []
+first.append(seq[0])
+print(first)
+contenders.append(first)
+print(contenders)
+
+for i in seq:
+    #if contenders:
+    for contender in contenders:
+        #are there at least two items in the subseq?
+        if len(contender)==1:
+            if contender[-1]<i:
+                contender.append(i)
+                #continue?
+        else:
+            #if the last item in a subseq is less than the current item,
+            #append the current item
+            if contender[-1]<i:
+                contender.append(i)
+            #if it's lower than the last but higher than the second-to-last,
+            #replace the last item with it
+            elif contender[-2]<i and i<contender[-1]:
+                contender[-1]=i
+
+ #need to create a new subseq for each seq item,
+#then eliminate the ones you don't need       
+print(contenders)
+
+#answer: [0,2,6,9,11,15]
