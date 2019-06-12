@@ -4,39 +4,72 @@ Created on Tue Jun 11 10:48:27 2019
 
 @author: Alma
 """
+#save Rosalind data as variable "Ros_seq":
+filename = "rosalind_seq.txt"
+with open(filename) as file_object:
+    Ros_seq = file_object.read().strip("\n").split(" ")
+for i in Ros_seq:
+    i = int(i)
+print(Ros_seq)
 
 contenders = []
 current_longest = []
 
-seq = [0,8,4,12,2,10,6,14,1,9,5,13,3,11,7,15]
+seq2 = [0,8,4,12,2,10,6,14,1,9,5,13,3,11,7,15]
+seq1 = [8,2,1,6,5,7,4,3,9]
 
-#the first subseq is the first element of seq
-first = []
-first.append(seq[0])
-print(first)
-contenders.append(first)
-print(contenders)
+def remover(current_subseq, other_subseqs):
+    """if there's another subseq of the same length but with a lower last index, remove it"""
+    for other in other_subseqs:
+        if len(current_subseq)==len(other) and current_subseq[-1] < other[-1]:
+            other_subseqs.remove(other)
 
-for i in seq:
-    #if contenders:
-    for contender in contenders:
-        #are there at least two items in the subseq?
-        if len(contender)==1:
-            if contender[-1]<i:
-                contender.append(i)
-                #continue?
-        else:
-            #if the last item in a subseq is less than the current item,
-            #append the current item
-            if contender[-1]<i:
-                contender.append(i)
-            #if it's lower than the last but higher than the second-to-last,
-            #replace the last item with it
-            elif contender[-2]<i and i<contender[-1]:
-                contender[-1]=i
+def long_increase_seq(seq):
+    #the first subseq is the first element of seq
+    first = []
+    first.append(seq[0])
+    print(first)
+    contenders.append(first)
+    print(contenders)
+    
+    seq_counter = 0
+    
+    while seq_counter < len(seq):
+        i = seq[seq_counter]
+        #if contenders:
+        for contender in contenders:
+            #are there at least two items in the subseq?
+            if len(contender)==1:
+                if contender[-1]<i:
+                    new = contender.copy()
+                    new.append(i)
+                    contenders.append(new)
+                else:
+                    #subseq starts with first lower element
+                    contender[-1]=i
+                            
+            else:
+                #if the last item in a subseq is less than the current item,
+                if contender[-1]<i:
+                    #copy the subseq, and append the element to it
+                    new = contender.copy()
+                    new.append(i)
+                    contenders.append(new)
+                    remover(new, contenders)
+                #if it's lower than the last but higher than the second-to-last,
+                #replace the last item with it
+                elif contender[-2]<i and i<contender[-1]:
+                    contender[-1]=i
+                    remover(new, contenders)
+        seq_counter+=1
+    longest = max(contenders, key=len)
+    print(longest)
 
- #need to create a new subseq for each seq item,
-#then eliminate the ones you don't need       
-print(contenders)
+  #  formatted = " ".join(longest)
+   # print(formatted)
 
+long_increase_seq(seq2)  
+
+#formatted = " ".join(longest_sub)
+#print(formatted)
 #answer: [0,2,6,9,11,15]
