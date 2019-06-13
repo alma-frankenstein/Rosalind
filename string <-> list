@@ -6,6 +6,6 @@ with open(filename) as file_object:
 for i in Ros_seq:
     i = int(i)
 
-#for output, turn it back into a string
-formatter = " ".join(Ros_seq)
+#for output, turn the list of integers back into a string
+formatted = " ".join(map(str, Ros_seq))
 print(formatter)
