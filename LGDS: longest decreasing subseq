@@ -1,0 +1,72 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Jun 12 17:13:05 2019
+
+@author: Alma
+"""
+
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Jun 11 10:48:27 2019
+
+@author: Alma
+Same logic as LGIS (longest increasing subseq)
+"""
+#save Rosalind data as variable "Ros_seq":
+filename = "rosalind_seq.txt"
+with open(filename) as file_object:
+    Ros_seq = file_object.read().strip("\n").split(" ")
+for i in Ros_seq:
+    i = int(i)
+
+contenders = []
+current_longest = []
+
+def remover(current_subseq, other_subseqs):
+    """if there's another subseq of the same length but with a lower last index, remove it"""
+    for other in other_subseqs:
+        if len(current_subseq)==len(other) and current_subseq[-1] > other[-1]:
+            other_subseqs.remove(other)
+
+def long_decrease_seq(seq):
+    #the first subseq is the first element of seq
+    first = []
+    first.append(seq[0])
+    contenders.append(first)
+    
+    seq_counter = 0
+    
+    while seq_counter < len(seq):
+        i = seq[seq_counter]
+        for contender in contenders:
+            #are there at least two items in the subseq?
+            if len(contender)==1:
+                if contender[-1]>i:
+                    new = contender.copy()
+                    new.append(i)
+                    contenders.append(new)
+                else:
+                    #subseq starts with first lower element
+                    contender[-1]=i
+                            
+            else:
+                #if the last item in a subseq is less than the current item,
+                if contender[-1]>i:
+                    #copy the subseq, and append the element to it
+                    new = contender.copy()
+                    new.append(i)
+                    contenders.append(new)
+                    remover(new, contenders)
+                #if it's lower than the last but higher than the second-to-last,
+                #replace the last item with it
+                elif contender[-2]>i and i>contender[-1]:
+                    contender[-1]=i
+                    remover(new, contenders)
+        seq_counter+=1
+
+long_decrease_seq(Ros_seq)  
+longest = max(contenders, key=len)
+
+formatted_long = " ".join(map(str,longest))
+print(formatted_long)
+
