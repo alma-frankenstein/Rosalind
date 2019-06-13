@@ -10,13 +10,9 @@ with open(filename) as file_object:
     Ros_seq = file_object.read().strip("\n").split(" ")
 for i in Ros_seq:
     i = int(i)
-print(Ros_seq)
 
 contenders = []
 current_longest = []
-
-seq2 = [0,8,4,12,2,10,6,14,1,9,5,13,3,11,7,15]
-seq1 = [8,2,1,6,5,7,4,3,9]
 
 def remover(current_subseq, other_subseqs):
     """if there's another subseq of the same length but with a lower last index, remove it"""
@@ -28,9 +24,7 @@ def long_increase_seq(seq):
     #the first subseq is the first element of seq
     first = []
     first.append(seq[0])
-    print(first)
     contenders.append(first)
-    print(contenders)
     
     seq_counter = 0
     
@@ -62,14 +56,9 @@ def long_increase_seq(seq):
                     contender[-1]=i
                     remover(new, contenders)
         seq_counter+=1
-    longest = max(contenders, key=len)
-    print(longest)
 
-  #  formatted = " ".join(longest)
-   # print(formatted)
+long_increase_seq(Ros_seq)  
+longest = max(contenders, key=len)
 
-long_increase_seq(seq2)  
-
-#formatted = " ".join(longest_sub)
-#print(formatted)
-#answer: [0,2,6,9,11,15]
+formatted_long = " ".join(map(str,longest))
+print(formatted_long)
