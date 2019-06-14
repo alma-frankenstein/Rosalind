@@ -1,0 +1,16 @@
+import networkx as nx
+import matplotlib.pyplot as plt
+
+G = nx.Graph()
+
+G.add_node(1)
+#nx.draw(G)
+ad_matrix=[]
+with open('rosalind_tree.txt') as file_object:
+    for line in file_object:
+        ad_matrix += line.strip('\n',).split(" ")
+
+#turn the adjacency list into a dictionary
+
+x = zip(ad_matrix[0::2], ad_matrix[1::2])
+print(dict(x))
