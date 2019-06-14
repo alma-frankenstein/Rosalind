@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 
 G = nx.Graph()
 
-G.add_node(1)
 #nx.draw(G)
 ad_matrix=[]
 with open('rosalind_tree.txt') as file_object:
@@ -13,4 +12,13 @@ with open('rosalind_tree.txt') as file_object:
 #turn the adjacency list into a dictionary
 
 x = zip(ad_matrix[0::2], ad_matrix[1::2])
-print(dict(x))
+matrix_dict=dict(x) 
+print(matrix_dict)
+
+#for k,v in dict, each is a node with a connecting edge
+G.add_nodes_from(matrix_dict)
+for k,v in matrix_dict.items():
+    G.add_edge(k,v)
+nx.draw(G)
+
+#if they have degree two or more, connect them
