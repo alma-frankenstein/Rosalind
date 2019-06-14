@@ -1,0 +1,10 @@
+filename = 'rosalind_pmch.txt'
+with open(filename) as file_object:
+    rna = file_object.read()
+    
+from math import factorial
+
+def matching(rna):
+    return (factorial(rna.count("A"))*factorial(rna.count("G")))
+
+print(matching(rna))
