@@ -1,6 +1,6 @@
 #useful for 'Finding a Shared Motif' 
 #find each substring slice in the superstring
-string = "GATTACA"
+string = "GATTACA" # the classic
 
 #get the index of each nucleotide
 #'index' only returns the first occurance
