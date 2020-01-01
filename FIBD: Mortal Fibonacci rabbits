@@ -1,3 +1,6 @@
+"""Given: Positive integers n≤100 and m≤20
+Return: The total number of pairs of rabbits that will remain after the n-th month if all rabbits live for m months."""
+
 #start with 1 pair of rabbits in each first and second months (given)
 wabbits = [1, 1]                                                               
    
