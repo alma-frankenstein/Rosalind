@@ -14,8 +14,7 @@ def mortal_wabbits(number_months, months_alive):
             wabbits.append(wabbits[-2] + (wabbits[-1] - 1))                          
         else:       
    #subtract the rabbits that were new n months ago, because they die in this month
-            wabbits.append(wabbits[-2] + wabbits[-1] - wabbits[-(                  
-                months_alive + 1)])                                                           
+            wabbits.append(wabbits[-2] + wabbits[-1] - wabbits[-(months_alive + 1)])                                                           
         months += 1                                                                
     print(wabbits[-1])  
     
