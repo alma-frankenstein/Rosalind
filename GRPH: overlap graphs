@@ -24,7 +24,7 @@ def fastaToDict(fileName):
         sequence = ''
         for line in file_object:
             if ('>') not in line:
-                sequence +=	line.rstrip('\n')
+                sequence += line.rstrip('\n')
                 continue
             else:
                 ids.append(line.rstrip('\n').lstrip('>'))
