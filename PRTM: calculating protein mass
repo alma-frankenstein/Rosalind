@@ -1,48 +1,21 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+sampleString = "SKADYEK"
+expectedOutput = 821.392
+
+protDict = {'A': 71.03711, 'C':103.00919, 'D':15.02694, 'E':129.04259, 'F':147.06841,'G':57.02146,'H':137.05891,
+             'I':113.08406,'K':128.09496,'L':113.08406,'M':131.04049,'N':114.04293,'P':97.05276, 'Q':128.05858,
+             'R':156.10111, 'S':87.03203, 'T':101.04768, 'V':99.06841,'W':186.07931,'Y':163.06333}
+
 def prot_mass(prot_string):
     total = 0
     
     for letter in prot_string:
-        if letter == 'A': 
-            total += 71.03711
-        elif letter == 'C':
-            total += 103.00919
-        elif letter == 'D':
-            total += 115.02694
-        elif letter == 'E':
-            total += 129.04259
-        elif letter == 'F':
-            total += 147.06841
-        elif letter == 'G':
-            total += 57.02146
-        elif letter == 'H':
-            total += 137.05891
-        elif letter == 'I':
-            total += 113.08406
-        elif letter == 'K':
-            total += 128.09496
-        elif letter == 'L':
-            total += 113.08406
-        elif letter == 'M':
-            total += 131.04049
-        elif letter == 'N':
-            total += 114.04293
-        elif letter == 'P':
-            total += 97.05276
-        elif letter == 'Q':
-            total += 128.05858
-        elif letter == 'R':
-            total += 156.10111
-        elif letter == 'S':
-            total += 87.03203
-        elif letter == 'T':
-            total += 101.04768
-        elif letter == 'V':
-            total += 99.06841
-        elif letter == 'W':
-            total += 186.07931
-        elif letter == 'Y':
-            total += 163.06333 
-    
-    print(total)
+        total += protDict[letter]
+        #print(letter)
+        #print(protDict[letter])
+        
+    return(total)
 
-prot_mass('')
+print(prot_mass(sampleString))
