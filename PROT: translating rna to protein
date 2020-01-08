@@ -6,7 +6,6 @@ filename = 'rosalind_prot.txt'
 with open(filename) as file_object:
     rosalind_input = file_object.read()
 
-
 #takes rna string from rosalind, makes it a list for indexing:
 as_list = list(rosalind_input)
 
@@ -16,6 +15,13 @@ counter = 0
 index1 = 0
 index2 = 3
 codons = []
+breakCodons = ['UAA', 'UAG', 'UGA']
+protDict = {'F':['UUU', 'UUC'], 'L': ['UUA', 'CUU', 'UUG', 'CUC', 'CUA', 'CUG'], 'S':['AGU', 'AGC','UCU', 'UCC', 'UCA', 'UCG'], 'Y':['UAU', 'UAC'],
+                'I': ['AUU', 'AUC', 'AUA'], 'P':['CCU', 'CCC', 'CCA', 'CCG'], 'H': ['CAU', 'CAC'],
+                'C': ['UGU', 'UGC'], 'W': ['UGG'], 'V': ['GUU', 'GUC', 'GUA', 'GUG'], 'M': ['AUG'], 'T': ['ACU', 'ACC', 'ACA', 'ACG'],
+                'N': ['AAU', 'AAC'], 'Q': ['CAA', 'CAG'], 'R': ['CGU', 'CGC', 'AGA', 'AGG', 'CGA', 'CGG'],
+                'A': ['GCU', 'GCC', 'GCA', 'GCG'], 'D': ['GAU', 'GAC'], 'K': ['AAA', 'AAG'],
+                'E': ['GAA', 'GAG'], 'G': ['GGU', 'GGC', 'GGG', 'GGA']}
 
 while counter < len(rosalind_input):
     codon =(as_list[index1:index2])
@@ -26,23 +32,14 @@ while counter < len(rosalind_input):
     counter += 3
     index1 += 3
     index2 += 3
-    
-    breakCodons = ['UAA', 'UAG', 'UGA']
-    protDict = {'F':['UUU', 'UUC'], 'L': ['UUA', 'CUU', 'UUG', 'CUC', 'CUA', 'CUG'], 'S':['AGU', 'AGC','UCU', 'UCC', 'UCA', 'UCG'], 'Y':['UAU', 'UAC'],
-                'I': ['AUU', 'AUC', 'AUA'], 'P':['CCU', 'CCC', 'CCA', 'CCG'], 'H': ['CAU', 'CAC'],
-                'C': ['UGU', 'UGC'], 'W': ['UGG'], 'V': ['GUU', 'GUC', 'GUA', 'GUG'], 'M': ['AUG'], 'T': ['ACU', 'ACC', 'ACA', 'ACG'],
-                'N': ['AAU', 'AAC'], 'Q': ['CAA', 'CAG'], 'R': ['CGU', 'CGC', 'AGA', 'AGG', 'CGA', 'CGG'],
-                'A': ['GCU', 'GCC', 'GCA', 'GCG'], 'D': ['GAU', 'GAC'], 'K': ['AAA', 'AAG'],
-                'E': ['GAA', 'GAG'], 'G': ['GGU', 'GGC', 'GGG', 'GGA']}
-                
+
 for codon in codons:
     if codon in breakCodons:
         break
     for k, v in protDict.items():
         if codon in v:
             protein += k
-        
-    
+            
 print(protein)
 
 
