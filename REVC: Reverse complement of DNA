@@ -18,6 +18,6 @@ def work_it(strand):
     for nucleotide in strand:
         comple += complements[nucleotide]
     
-    return comple[::-1] #reverses list
+    return comple[::-1] #reverses string
 
 print(work_it(dna))
