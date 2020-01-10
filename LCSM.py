@@ -1,13 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Created on Wed Jan  1 12:13:09 2020
 
-@author: alma
 """
-
-# -*- coding: utf-8 -*-
-"""
+Shared motifs
 Given: A collection of k (k≤100) DNA strings of length at most 1 kbp each in FASTA format.
 Return: A longest common substring of the collection. (If multiple solutions exist, you may return any single solution.)
 """
