@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-"""Given:DNA strings in FASTA format
-Return: The ID of the string having the highest GC-content, followed by the GC-content of that string. """
+#Percentage GC content
+#Given:DNA strings in FASTA format
+#Return: The ID of the string having the highest GC-content, followed by the GC-content of that string. 
 
 import itertools
 
