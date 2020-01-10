@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-"""Given: Two DNA strings s and t of equal length.
-Return: The Hamming distance"""
+"""
+Counting point mutations
+Given: Two DNA strings s and t of equal length.
+Return: The Hamming distance
+"""
 
 def mutations(stringA, stringB):
     counter = 0
