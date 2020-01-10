@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
+Overlap graphs
 Given: FASTA of DNA IDs and sequences
 Return: adjacency list, where the last three nucleotides of one sequence
    match the first three nucleotides of the one it's adjacent to
