@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+#Calculating protein mass
 #Given: A protein string P
 #Return: The total weight of P. Consult the monoisotopic mass table, https://en.wikipedia.org/wiki/Proteinogenic_amino_acid#Mass_spectrometry.
 
