@@ -1,3 +1,11 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+#RNA splicing
+#Given: A DNA string s (of length at most 1 kbp) and a collection of substrings of s
+#acting as introns. All strings are given in FASTA format.
+#Return: A protein string resulting from transcribing and translating the exons of s
+
 import itertools
 
 #append ids and multi-line sequences to their respective lists
