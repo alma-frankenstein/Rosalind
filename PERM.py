@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-"""Given: A positive integer
+"""
+Enumerating gene orders
+Given: A positive integer
 Return: The total number of permutations of length n, 
-followed by a list of all such permutations (in any order)."""
+followed by a list of all such permutations (in any order).
+"""
 
 
 from itertools import permutations 
