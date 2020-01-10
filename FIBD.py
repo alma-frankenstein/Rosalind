@@ -1,5 +1,9 @@
-"""Given: Positive integers n≤100 and m≤20
-Return: The total number of pairs of rabbits that will remain after the n-th month if all rabbits live for m months."""
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+#Mortal Fibonacci rabbits
+#Given: Positive integers n≤100 and m≤20
+#Return: The total number of pairs of rabbits that will remain after the n-th month if all rabbits live for m months.
 
 #start with 1 pair of rabbits in each first and second months (given)
 wabbits = [1, 1]                                                               
@@ -16,6 +20,5 @@ def mortal_wabbits(number_months, months_alive):
    #subtract the rabbits that were new n months ago, because they die in this month
             wabbits.append(wabbits[-2] + wabbits[-1] - wabbits[-(months_alive + 1)])                                                           
         months += 1                                                                
-    print(wabbits[-1])  
+    return wabbits[-1]  
     
-mortal_wabbits(83,16)
