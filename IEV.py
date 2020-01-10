@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-"""Given: Six nonnegative integers. The integers correspond to the number of couples in a population possessing 
+"""
+Calculating expected offspring
+Given: Six nonnegative integers. The integers correspond to the number of couples in a population possessing 
 each genotype pairing for a given factor. In order, the six given integers represent the number of couples having 
 the following genotypes:
 
