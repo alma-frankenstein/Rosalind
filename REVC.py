@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+#Reverse complement of DNA
 #Given: A DNA string
 #Return: The reverse complement
 
