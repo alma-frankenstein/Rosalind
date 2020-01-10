@@ -1,7 +1,9 @@
-#useful for 'Finding a Shared Motif' 
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 #find each substring slice in the superstring
 
-string = "GATTACA"
+string = "" #insert string here
 
 def everySubstring(string):
     substrings = []
